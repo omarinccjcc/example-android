@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Tab</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_tab01">Log</string>
+    <string name="section_tab02">Favorites</string>
+    <string name="section_tab03">Contacts</string>
+    <string name="section_tab04">Message</string>
+</resources>

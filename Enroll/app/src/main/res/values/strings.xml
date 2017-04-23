@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Enroll</string>
+    <string name="action_new_person">Nueva Persona</string>
+    <string name="action_about">Acerca de</string>
+    <string name="action_synchronize">Actualizar</string>
+    <string name="title_activity_register">Persona</string>
+
+    <string name="frm_name">Nombre</string>
+    <string name="frm_last_names">Apellidos</string>
+    <string name="frm_address">Dirección</string>
+    <string name="frm_sex">Sexo</string>
+    <string name="frm_status">Estado</string>
+
+    <string name="frm_save">Guardar</string>
+
+</resources>

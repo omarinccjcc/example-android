@@ -8,4 +8,8 @@
     tools:context="pe.edu.upeu.registro.About"
     tools:showIn="@layout/activity_about">
 
+
+
+
+
 </android.support.constraint.ConstraintLayout>

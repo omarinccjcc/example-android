@@ -7,6 +7,7 @@
     <string name="action_synchronize">Sincroniza</string>
     <string name="action_activate">Activar</string>
     <string name="action_edit">Modificar</string>
+    <string name="action_delete">Delete</string>
 
 
     <string name="message_name">Nombre</string>
@@ -14,6 +15,10 @@
     <string name="message_last_name_m">Apellido Materno</string>
     <string name="message_site">Sito Web</string>
     <string name="message_address">Dirección</string>
+    <string name="message_sex">Sexo:</string>
+    <string name="message_score">Puntaje:</string>
+    <string name="message_married">Soltero</string>
+
 
     <string name="btn_msg_save">Guardar</string>
 
@@ -22,6 +27,10 @@
 
     <string name="action_contacts">Contactos</string>
     <string name="title_activity_contact">ContactActivity</string>
+
+
+    <string name="radio_active">Activo</string>
+    <string name="radio_inactive">Inactivo</string>
 
 
 </resources>

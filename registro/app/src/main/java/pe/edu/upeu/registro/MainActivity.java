@@ -1,9 +1,12 @@
 package pe.edu.upeu.registro;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -24,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     public static List<Person> listPerson = new ArrayList<Person>();
 
     public int personId=0;
+
+    final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,17 +105,48 @@ public class MainActivity extends AppCompatActivity {
                 Intent contactIntent = new Intent(this,ContactActivity.class);
                 startActivity(contactIntent);
                 break;
-        }
-        /*
-        int id = item.getItemId();
-      //noinspection SimplifiableIfStatement
-        if (id == R.id.action_new_person) {
-            return true;
-        }
-        if (id == R.id.action_about){
+            case R.id.action_delete:
 
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                        context);
+                alertDialogBuilder.setTitle("Alerta");
+                alertDialogBuilder
+                        .setMessage("Esta Seguro de Eliminar?")
+                        .setCancelable(false)
+                        .setPositiveButton("Si",new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                deletePerson();
+                                refresh();
+                            }
+                        })
+                        .setNegativeButton("No",new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                dialog.cancel();
+                            }
+                        });
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                // show it
+                alertDialog.show();
+                break;
         }
-        */
         return super.onOptionsItemSelected(item);
     }
+
+
+    public void refresh(){
+        Intent contactIntent = new Intent(this,MainActivity.class);
+        startActivity(contactIntent);
+    }
+    public void deletePerson() {
+        List<Person> listPerson2=new ArrayList<Person>();
+        for (Person person:MainActivity.listPerson){
+            if(person.getId()!=personId){
+                listPerson2.add(person);
+            }
+        }
+        listPerson=listPerson2;
+        personId=0;
+    }
+
 }

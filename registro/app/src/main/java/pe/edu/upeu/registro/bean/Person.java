@@ -14,11 +14,16 @@ public class Person {
     private String lastNameM;
     private String site;
     private String address;
+    private String sex;
+    private String status;
+    private String statusMarried;
+    private String score;
+
     private Integer photo;
 
     public Person(){}
 
-    public Person(int id, String name, String lastNameF, String lastNameM, String site, String address,Integer photo) {
+    public Person(int id, String name, String lastNameF, String lastNameM, String site, String address,Integer photo,String sex) {
         this.id = id;
         this.name = name;
         this.lastNameF = lastNameF;
@@ -26,6 +31,14 @@ public class Person {
         this.site = site;
         this.address = address;
         this.photo = photo;
+        this.sex = sex;
+
+    }
+    public String getSex() {
+        return sex;
+    }
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public int getId() {
@@ -86,6 +99,31 @@ public class Person {
 
     @Override
     public String toString() {
-        return name + " " + lastNameF +" " + lastNameM ;
+        return name + " " + lastNameF +" " + lastNameM+" - "+sex + " - "+status ;
+    }
+
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatusMarried() {
+        return statusMarried;
+    }
+
+    public void setStatusMarried(String statusMarried) {
+        this.statusMarried = statusMarried;
+    }
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
     }
 }

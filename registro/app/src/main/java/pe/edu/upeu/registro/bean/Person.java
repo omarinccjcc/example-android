@@ -18,7 +18,6 @@ public class Person {
     private String status;
     private String statusMarried;
     private String score;
-
     private Integer photo;
 
     public Person(){}

@@ -94,7 +94,6 @@ public class Register extends AppCompatActivity {
                 }
             }
         });
-
     }
     public void loadFiles(){
         txtName = (EditText) findViewById(R.id.txtNombre);
@@ -111,7 +110,7 @@ public class Register extends AppCompatActivity {
     public void editLoad(){
         // para obtener valores enviados de la otra actividad
         Bundle parameters = getIntent().getExtras();
-        personId = (int) parameters.getInt("personId");
+        personId = parameters.getInt("personId");
         if(personId!=0){
             Person person = getPersonById(personId);
             txtName.setText(person.getName());

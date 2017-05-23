@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">UnionPeruana</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="msg_church">Iglesia cerca de mi</string>
+    <string name="msg_search_church">Buscar Iglesia</string>
+    <string name="msg_video">Video</string>
+    <string name="msg_music">Musica</string>
+    <string name="msg_chat">Chat</string>
+    <string name="msg_about">Acerca de mi</string>
+
+    <string name="msg_communicate">Comunicación</string>
+    <string name="msg_multimedia">Multimedia</string>
+
+    <string name="msg_type">Tipo</string>
+    <string name="msg_city">Ciudad</string>
+    <string name="msg_name_church">Nombre de Iglesia</string>
+    <string name="msg_btn_search_church">Buscar</string>
+
+    <string name="title_activity_frm_search_church">Buscar Institución</string>
+    <string name="title_activity_show_church_map">Institución</string>
+    <string name="title_activity_near_to_me_church">NearToMeChurchActivity</string>
+
+</resources>

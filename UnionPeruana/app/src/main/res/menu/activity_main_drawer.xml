@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_church"
+            android:icon="@drawable/ic_menu_place"
+            android:title="@string/msg_church" />
+        <item
+            android:id="@+id/nav_search_church"
+            android:icon="@drawable/ic_menu_search"
+            android:title="@string/msg_search_church" />
+    </group>
+    <item android:title="@string/msg_multimedia">
+        <menu>
+            <item
+                android:id="@+id/nav_video"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/msg_video" />
+            <item
+                android:id="@+id/nav_music"
+                android:icon="@drawable/ic_menu_music"
+                android:title="@string/msg_music" />
+        </menu>
+    </item>
+
+    <item android:title="@string/msg_communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_chat"
+                android:icon="@drawable/ic_menu_people"
+                android:title="@string/msg_chat" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_menu_person"
+                android:title="@string/msg_about" />
+        </menu>
+    </item>
+
+</menu>

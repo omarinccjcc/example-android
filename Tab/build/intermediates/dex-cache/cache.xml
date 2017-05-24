@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/diego/Documentos/www/java-desa/workspace-android/example-android/Tab/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="/home/diego/Documentos/www/java-desa/workspace-android/example-android/Tab/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_12b0af845cc64d0fef189e909a0d3a9adb145342/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/diego/Documentos/www/java-desa/workspace-android/example-android/Tab/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="df9a9adb0bbfb6f24bd5a8a26157dd25dcadbe43">
+        <dex dex="/home/diego/Documentos/www/java-desa/workspace-android/example-android/Tab/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_03f164d3d02f18a4b2b300e699b8a645d4147e3e/classes.dex" />
+    </item>
+
+</items>

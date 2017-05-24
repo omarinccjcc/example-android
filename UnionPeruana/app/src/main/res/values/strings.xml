@@ -24,5 +24,7 @@
     <string name="title_activity_frm_search_church">Buscar Institución</string>
     <string name="title_activity_show_church_map">Institución</string>
     <string name="title_activity_near_to_me_church">NearToMeChurchActivity</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_near_to_me">NearToMeActivity</string>
 
 </resources>

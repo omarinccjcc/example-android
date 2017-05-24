@@ -47,11 +47,11 @@ public class FrmSearchChurchActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(FrmSearchChurchActivity.this, spinnerType.getSelectedItemId()+ " - "+txtNameChurch.getText(), Toast.LENGTH_LONG).show();
-                Intent i = new Intent(FrmSearchChurchActivity.this, ShowChurchMapActivity.class);
-                i.putExtra("baseTypeId",  spinnerType.getSelectedItemId()+"" );
-                i.putExtra("cityId", spinnerCity.getSelectedItemId()+"" );
-                i.putExtra("church", txtNameChurch.getText().toString());
-                startActivity(i);
+                //Intent i = new Intent(FrmSearchChurchActivity.this, ShowChurchMapActivity.class);
+                //i.putExtra("baseTypeId",  spinnerType.getSelectedItemId()+"" );
+                //i.putExtra("cityId", spinnerCity.getSelectedItemId()+"" );
+                //i.putExtra("church", txtNameChurch.getText().toString());
+                //startActivity(i);
             }
         });
     }

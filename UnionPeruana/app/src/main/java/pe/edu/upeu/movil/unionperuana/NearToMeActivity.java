@@ -1,84 +1,137 @@
 package pe.edu.upeu.movil.unionperuana;
 
-import android.content.Context;
-import android.location.Location;
-import android.location.LocationManager;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
+import android.support.design.widget.TabLayout;
+
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
-import pe.edu.upeu.movil.unionperuana.util.TabsPagerAdapter;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.os.Bundle;
 
-public class NearToMeActivity extends FragmentActivity implements ActionBar.TabListener {
+import android.view.Menu;
+import android.view.MenuItem;
 
-    private ViewPager viewPager;
-    private TabsPagerAdapter mAdapter;
+import java.util.ArrayList;
+import java.util.List;
 
-    private android.app.ActionBar actionBar;
-    // Tab titles
-    private String[] tabs = { "Lista", "Mapa" };
+import pe.edu.upeu.movil.unionperuana.bean.Institution;
+import pe.edu.upeu.movil.unionperuana.service.UnionService;
+
+/**
+ * Created by omar on 21/05/17.
+ */
+
+public class NearToMeActivity extends AppCompatActivity {
+
+    private SectionsPagerAdapter mSectionsPagerAdapter;
+
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_near_to_me);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-/*
-        viewPager = (ViewPager) findViewById(R.id.pager);
+        setSupportActionBar(toolbar);
 
-        actionBar = getActionBar();
+        List<Institution> listInstitution=findInstitutions();
 
-        LocationManager locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        Location loc = null;
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),listInstitution);
 
-        mAdapter = new TabsPagerAdapter(getSupportFragmentManager(), loc);
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        viewPager.setAdapter(mAdapter);
-        actionBar.setHomeButtonEnabled(false);
-        //actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
 
-        // Adding Tabs
-        for (String tab_name : tabs) {
-            actionBar.addTab(actionBar.newTab().setText(tab_name).setTabListener((android.app.ActionBar.TabListener) this));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//habilita el boton en ActionBar
+    }
+
+    public List<Institution> findInstitutions(){
+        Bundle params = getIntent().getExtras();
+        UnionService unionService = new UnionService();
+        if("near".equals(params.getString("typeSearch"))){
+            return unionService.findInstitutionByBaseTyIdCityIdChurch(null,null,null,"","",params.getString("typeSearch"));
+        }else{
+            return unionService.findInstitutionByBaseTyIdCityIdChurch(
+                    params.getString("baseTypeId"),
+                    params.getString("cityId"),
+                    params.getString("church"),null,null,
+                    params.getString("typeSearch"));
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_near_to_me, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            return true;
+        }else {
+            onBackPressed();
         }
 
+        return super.onOptionsItemSelected(item);
+    }
 
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
-            @Override
-            public void onPageSelected(int position) {
-                actionBar.setSelectedNavigationItem(position);
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        List<Institution> listInstitution;
+
+        public SectionsPagerAdapter(FragmentManager fm, List<Institution> listInstitution) {
+            super(fm);
+            this.listInstitution = listInstitution;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+
+            switch (position){
+                case 0:
+                    NearToMeChurchListActivity tab1 = new NearToMeChurchListActivity(listInstitution);
+                    return tab1;
+                case 1:
+                    NearToMeChurchMapActivity tab2 = new NearToMeChurchMapActivity(listInstitution);
+                    return tab2;
+                default:
+                    return null;
             }
-            @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2) {
+            //return PlaceholderFragment.newInstance(position + 1);
+        }
+
+        @Override
+        public int getCount() {
+            // Show 3 total pages.
+            return 2;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "Lista";
+                case 1:
+                    return "Mapa";
             }
-            @Override
-            public void onPageScrollStateChanged(int arg0) {
-            }
-        });*/
-
+            return null;
+        }
     }
 
-    @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-
-    }
-
-    @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
-    }
-
-    @Override
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
-    }
 }
+
+
+

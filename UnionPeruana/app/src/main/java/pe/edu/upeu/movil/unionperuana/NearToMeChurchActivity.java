@@ -18,6 +18,10 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+/**
+ * Created by omar on 21/05/17.
+ */
+
 public class NearToMeChurchActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -28,8 +32,7 @@ public class NearToMeChurchActivity extends FragmentActivity implements OnMapRea
         setContentView(R.layout.activity_near_to_me_church);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager() .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
     }

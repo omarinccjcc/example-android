@@ -26,5 +26,6 @@
     <string name="title_activity_near_to_me_church">NearToMeChurchActivity</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_near_to_me">NearToMeActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
 </resources>

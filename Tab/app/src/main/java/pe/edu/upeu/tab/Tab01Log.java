@@ -21,6 +21,8 @@ public class Tab01Log extends Fragment {
     MapView mapView;
     GoogleMap map;
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

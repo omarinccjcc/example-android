@@ -14,6 +14,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * Created by omar on 21/05/17.
+ */
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -73,6 +77,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         if (id == R.id.nav_church) {
             Intent i = new Intent(this,NearToMeActivity.class);
+            i.putExtra("typeSearch", "near");
             startActivity(i);
         } else if (id == R.id.nav_search_church) {
             Intent i = new Intent(this,FrmSearchChurchActivity.class);

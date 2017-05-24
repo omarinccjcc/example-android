@@ -20,10 +20,16 @@ import pe.edu.upeu.movil.unionperuana.util.Commons;
 
 public class UnionService {
 
-    public List<Institution> findInstitutionByBaseTyIdCityIdChurch(String baseTypeId, String cityId, String church) {
+    public List<Institution> findInstitutionByBaseTyIdCityIdChurch(String baseTypeId, String cityId, String church,String lat, String log, String typeSearch) {
+        String URL ="";
+        if ("near".equals(typeSearch)){
+            URL=Commons.URL_STRING + "searchInstitutionByAll/"+baseTypeId+"-"+cityId+"-"+church;
+        }else{
+            URL=Commons.URL_STRING + "searchInstitutionByAll/"+lat+"-"+log;
+        }
         List<Institution> list = new ArrayList<Institution>();
         try {
-            RestClient client = new RestClient(Commons.URL_STRING + "searchInstitutionByAll/"+baseTypeId+"-"+cityId+"-"+church);
+            RestClient client = new RestClient(URL);
             client.execute(RequestMethod.GET);
             if (client.getResponseCode() == 200) {
                 JSONArray nameArray = new JSONArray(client.getResponse());

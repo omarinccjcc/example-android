@@ -9,8 +9,9 @@
     <string name="msg_church">Iglesia cerca de mi</string>
     <string name="msg_search_church">Buscar Iglesia</string>
     <string name="msg_video">Video</string>
-    <string name="msg_music">Musica</string>
+    <string name="msg_music">Música</string>
     <string name="msg_chat">Chat</string>
+    <string name="msg_sms">Envio de Mensajes</string>
     <string name="msg_about">Acerca de mi</string>
 
     <string name="msg_communicate">Comunicación</string>

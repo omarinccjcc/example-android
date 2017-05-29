@@ -24,7 +24,7 @@
 
 
     <string name="msg_cancel_login">Cancel Login</string>
-    <string name="msg_error_login">Error Login</string>
+    <string name="msg_error_login">Error al momento de conectarse con facebook</string>
 
 
 

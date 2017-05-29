@@ -22,11 +22,19 @@
     <string name="msg_name_church">Nombre de Iglesia</string>
     <string name="msg_btn_search_church">Buscar</string>
 
+
+    <string name="msg_cancel_login">Cancel Login</string>
+    <string name="msg_error_login">Error Login</string>
+
+
+
     <string name="title_activity_frm_search_church">Buscar Institución</string>
     <string name="title_activity_show_church_map">Institución</string>
     <string name="title_activity_near_to_me_church">NearToMeChurchActivity</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_near_to_me">NearToMeActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_send_sms">SendSmsActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
 
 </resources>

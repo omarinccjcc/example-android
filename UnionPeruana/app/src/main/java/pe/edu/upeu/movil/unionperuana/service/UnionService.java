@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pe.edu.upeu.movil.unionperuana.bean.BaseType;
+import pe.edu.upeu.movil.unionperuana.bean.Campaign;
 import pe.edu.upeu.movil.unionperuana.bean.City;
 import pe.edu.upeu.movil.unionperuana.bean.Institution;
+import pe.edu.upeu.movil.unionperuana.bean.Sms;
 import pe.edu.upeu.movil.unionperuana.rest.RequestMethod;
 import pe.edu.upeu.movil.unionperuana.rest.RestClient;
 import pe.edu.upeu.movil.unionperuana.util.Commons;
@@ -107,5 +109,60 @@ public class UnionService {
             e.printStackTrace();
         }
         return list;
+    }
+
+    public List<Sms> findSms(String url) {
+        List<Sms> list = new ArrayList<Sms>();
+        try {
+            RestClient client = new RestClient(url);
+            client.addParam("a","aaaas");
+            client.execute(RequestMethod.GET);
+            if (client.getResponseCode() == 200) {
+                JSONArray nameArray = new JSONArray(client.getResponse());
+                for (int i = 0; i < nameArray.length(); i++) {
+                    JSONObject oj = nameArray.getJSONObject(i);
+                    Sms person = new Sms();
+                    person.setId(oj.getLong("id"));
+                    person.setNumPhone(oj.getString("numPhone"));
+                    person.setMessage(oj.getString("message"));
+                    list.add(person);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("message error: " + e.getLocalizedMessage());
+        }
+        return list;
+    }
+
+
+    public List<Campaign> findCampaign(String url) {
+        List<Campaign> list = new ArrayList<Campaign>();
+        try {
+            RestClient client = new RestClient(url);
+            client.execute(RequestMethod.GET);
+            if (client.getResponseCode() == 200) {
+                JSONArray nameArray = new JSONArray(client.getResponse());
+                for (int i = 0; i < nameArray.length(); i++) {
+                    JSONObject oj = nameArray.getJSONObject(i);
+                    list.add(new Campaign(oj.getInt("id"),oj.getString("nameCampaign")));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("message error: " + e.getLocalizedMessage());
+        }
+        return list;
+    }
+
+    public void updateSms(String url) {
+
+        try {
+            RestClient client = new RestClient(url);
+            client.execute(RequestMethod.GET);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("message error: " + e.getLocalizedMessage());
+        }
     }
 }

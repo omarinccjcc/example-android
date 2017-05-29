@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "793272996348",
+    "firebase_url": "https://rich-tine-168405.firebaseio.com",
+    "project_id": "rich-tine-168405",
+    "storage_bucket": "rich-tine-168405.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:793272996348:android:44c518deb3611cf4",
+        "android_client_info": {
+          "package_name": "pe.edu.upeu.movil.unionperuana"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "793272996348-9dvvqn0bpbj6cgkgrjvgd3skc3llrbb1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pe.edu.upeu.movil.unionperuana",
+            "certificate_hash": "4c1cc8fca35c698d8c6dddf858880693d3268933"
+          }
+        },
+        {
+          "client_id": "793272996348-7tlt6rk4bouig0v3ig0ogpqhl3ha8t1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC396xe91BarjAba2T7UuRoNJWsYElh4d0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "793272996348-7tlt6rk4bouig0v3ig0ogpqhl3ha8t1u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "793272996348-o4tsmpdrbd06b7tteue2d46opc156aio.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "pe.edu.upeu.movil.unionperuana"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

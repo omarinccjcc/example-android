@@ -37,4 +37,7 @@
     <string name="title_activity_send_sms">SendSmsActivity</string>
     <string name="title_activity_login">LoginActivity</string>
 
+
+    <string name="facebook_app_id">103697806893092</string>
+
 </resources>

@@ -54,6 +54,10 @@
             android:name=".SendSmsActivity"
             android:label="@string/title_activity_send_sms"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
@@ -62,7 +66,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

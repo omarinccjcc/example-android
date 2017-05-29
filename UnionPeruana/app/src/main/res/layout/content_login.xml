@@ -15,8 +15,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:elevation="0dp"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp" />
+        android:layout_marginBottom="12dp" />
 
 </RelativeLayout>

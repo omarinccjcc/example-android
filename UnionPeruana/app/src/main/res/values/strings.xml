@@ -13,6 +13,7 @@
     <string name="msg_chat">Chat</string>
     <string name="msg_sms">Envio de Mensajes</string>
     <string name="msg_about">Acerca de mi</string>
+    <string name="msg_close">Salir</string>
 
     <string name="msg_communicate">Comunicación</string>
     <string name="msg_multimedia">Multimedia</string>

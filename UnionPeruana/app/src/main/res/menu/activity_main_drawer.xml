@@ -38,6 +38,11 @@
                 android:id="@+id/nav_about"
                 android:icon="@drawable/ic_menu_person"
                 android:title="@string/msg_about" />
+            <item
+                android:id="@+id/nav_close"
+                android:icon="@drawable/ic_menu_clear"
+                android:title="@string/msg_close"
+                />
         </menu>
     </item>
 

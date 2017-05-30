@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         // facebook
-        if(AccessToken.getCurrentAccessToken()==null){
-            goLoginScreen();
-        }
+        //if(AccessToken.getCurrentAccessToken()==null){
+        //    goLoginScreen();
+        //}
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent);
     }
 
-    public void logout(View view){
+    public void logout(){
         LoginManager.getInstance().logOut();
         goLoginScreen();
     }
@@ -108,6 +108,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_chat) {
 
         } else if (id == R.id.nav_about) {
+
+        } else if (id == R.id.nav_close) {
+            logout();
 
         }
 

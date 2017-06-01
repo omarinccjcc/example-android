@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Mensajería Masiva UPeU FJ</string>
+
+    <string name="hello_world">0 Mensajes!</string>
+    <string name="send_message">Enviar Mensajes!</string>
+    <string name="upeu_message">Universidad Peruana Unión</string>
+    <string name="select_message_message">Seleccione Campaña:</string>
+    <string name="ingresar">Buscar Campañas:</string>
+
+
+</resources>

@@ -8,10 +8,14 @@ public class City {
 
     private int id;
     private String countryName;
+    private String latitud;
+    private String longitud;
 
-    public City(int id, String countryName) {
+    public City(int id, String countryName, String latitud, String longitud) {
         this.id = id;
         this.countryName = countryName;
+        this.latitud = latitud;
+        this.longitud = longitud;
     }
 
     public City() {}
@@ -35,5 +39,21 @@ public class City {
     @Override
     public String toString() {
         return countryName ;
+    }
+
+    public String getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(String latitud) {
+        this.latitud = latitud;
+    }
+
+    public String getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(String longitud) {
+        this.longitud = longitud;
     }
 }

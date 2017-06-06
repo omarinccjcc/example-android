@@ -27,7 +27,6 @@ public class PersonaListAdapter extends ArrayAdapter<Person> {
         TextView lastNameF;
         TextView lastNameM;
         TextView site;
-        TextView address;
         ImageView photo;
     }
 
@@ -47,7 +46,7 @@ public class PersonaListAdapter extends ArrayAdapter<Person> {
             viewHolder.lastNameF = (TextView)contentView.findViewById(R.id.lastNameF);
             viewHolder.lastNameM = (TextView)contentView.findViewById(R.id.lastNameM);
             viewHolder.site = (TextView)contentView.findViewById(R.id.site);
-            viewHolder.address = (TextView)contentView.findViewById(R.id.address);
+            //viewHolder.address = (TextView)contentView.findViewById(R.id.address);
             viewHolder.photo = (ImageView)contentView.findViewById(R.id.photo);
             contentView.setTag(viewHolder);
         }else{
@@ -58,7 +57,7 @@ public class PersonaListAdapter extends ArrayAdapter<Person> {
         viewHolder.lastNameM.setText(person.getLastNameM());
 
         viewHolder.site.setText(person.getSite());
-        viewHolder.address.setText(person.getAddress());
+        //viewHolder.address.setText(person.getAddress());
         viewHolder.photo.setImageResource(person.getPhoto());
 
         return contentView;

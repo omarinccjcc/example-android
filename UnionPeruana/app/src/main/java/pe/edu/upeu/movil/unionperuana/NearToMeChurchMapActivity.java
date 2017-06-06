@@ -37,9 +37,15 @@ public class NearToMeChurchMapActivity extends Fragment implements OnMapReadyCal
     MapView mapView;
     View mView;
     List<Institution> listInstitution;
+    double latitud;
+    double longitud;
 
-    public NearToMeChurchMapActivity(List<Institution> listInstitution) {
+
+
+    public NearToMeChurchMapActivity(List<Institution> listInstitution,double latitud,double longitud) {
         this.listInstitution = listInstitution;
+        this.latitud = latitud;
+        this.longitud = longitud;
     }
 
     @Override
@@ -52,7 +58,6 @@ public class NearToMeChurchMapActivity extends Fragment implements OnMapReadyCal
         mView = inflater.inflate(R.layout.activity_neartomechurch_map, container, false);
         return mView;
     }
-
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -67,24 +72,29 @@ public class NearToMeChurchMapActivity extends Fragment implements OnMapReadyCal
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
         MapsInitializer.initialize(getContext());
         map = googleMap;
-        LatLng sydney = new LatLng(-12.0500000, -77.0500031);
+        //LatLng sydney = new LatLng(-12.0500000, -77.0500031);
+        LatLng sydney = new LatLng(latitud, longitud);
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         //map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 200));
         map.animateCamera(CameraUpdateFactory.zoomTo(12), 200, null);
 
-        sydney = new LatLng(-12.0333131,-76.9701174);
-        map.addMarker(new MarkerOptions().position(sydney).title("Universidad Peruana Uninón").snippet("Av. Manuel Nuñez Butron 1223"));
+        for (Institution institution: listInstitution){
+            map.addMarker(new MarkerOptions().position(sydney).title(institution.getNameInstitution()).snippet(institution.getAddress())
+                    .icon(BitmapDescriptorFactory.fromResource( institution.getLogoImagen() )) .anchor(0.5f, 0.5f) );
+        }
 
-        sydney = new LatLng(-12.0475306,-77.077969);
-        map.addMarker(new MarkerOptions().position(sydney).title("Clinica Good Hope").snippet("Av. Manuel Nuñez Butron 1223"));
+        //sydney = new LatLng(-12.0333131,-76.9701174);
+        //map.addMarker(new MarkerOptions().position(sydney).title("Universidad Peruana Uninón").snippet("Av. Manuel Nuñez Butron 1223"));
 
-        sydney = new LatLng(-12.0587783, -77.0268997);
-        map.addMarker(new MarkerOptions().position(sydney).title("Iglesia").snippet("Av. Manuel Nuñez Butron 1223")
-                .icon(BitmapDescriptorFactory.fromResource( R.drawable.gmap)) .anchor(0.5f, 0.5f)
-        );
+        //sydney = new LatLng(-12.0475306,-77.077969);
+        //map.addMarker(new MarkerOptions().position(sydney).title("Clinica Good Hope").snippet("Av. Manuel Nuñez Butron 1223"));
+
+        //sydney = new LatLng(-12.0587783, -77.0268997);
+        //map.addMarker(new MarkerOptions().position(sydney).title("Iglesia").snippet("Av. Manuel Nuñez Butron 1223")
+        //        .icon(BitmapDescriptorFactory.fromResource( R.drawable.gmap)) .anchor(0.5f, 0.5f) );
+
     }
 }

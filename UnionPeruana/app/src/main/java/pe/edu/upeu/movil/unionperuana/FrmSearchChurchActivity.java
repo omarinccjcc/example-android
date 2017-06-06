@@ -2,6 +2,7 @@ package pe.edu.upeu.movil.unionperuana;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -35,6 +36,12 @@ public class FrmSearchChurchActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // para el manejo de los rest
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
         UnionService unionService = new UnionService();
         spinnerTypeLoad(unionService);
         spinnerCityLoad(unionService);
@@ -56,8 +63,14 @@ public class FrmSearchChurchActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Toast.makeText(FrmSearchChurchActivity.this, spinnerType.getSelectedItemId()+ " - "+txtNameChurch.getText(), Toast.LENGTH_LONG).show();
                 Intent i = new Intent(FrmSearchChurchActivity.this, NearToMeActivity.class);
-                i.putExtra("baseTypeId",  spinnerType.getSelectedItemId()+"" );
-                i.putExtra("cityId", spinnerCity.getSelectedItemId()+"" );
+                String typeCode = ( (BaseType)spinnerType.getSelectedItem() ).getID();
+                i.putExtra("baseTypeId", typeCode );
+
+                City city =(City)spinnerCity.getSelectedItem();
+                i.putExtra("cityId", city.getId() );
+                i.putExtra("latitud", city.getLatitud() );
+                i.putExtra("longitud", city.getLongitud());
+
                 i.putExtra("church", txtNameChurch.getText().toString());
                 i.putExtra("typeSearch", "search");
                 startActivity(i);

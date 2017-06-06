@@ -2,6 +2,9 @@ package pe.edu.upeu.movil.unionperuana.bean;
 
 //import pe.union.upeu.movil.iglesia.R;
 
+import pe.edu.upeu.movil.unionperuana.R;
+import pe.edu.upeu.movil.unionperuana.util.Commons;
+
 /**
  * Created by omar on 21/05/17.
  */
@@ -38,31 +41,41 @@ public class Institution {
 
 
     public Institution(){}
-/*
-    public int getImage() {
+
+    public int getLogoImagen() {
         int image = 0;
         if (typeInstitution.equals(Commons.TYPE_ADRA)) {
-            image = R.drawable.adra;
+            //image = R.drawable.adra;
+            image = R.drawable.gmap;
         } else if (typeInstitution.equals(Commons.TYPE_ASOC)) {
-            image = R.drawable.adra;
+            //image = R.drawable.adra;
+            image = R.drawable.gmap;
         } else if (typeInstitution.equals(Commons.TYPE_CHURCH)) {
-            image = R.drawable.iglesia;
+            //image = R.drawable.iglesia;
+            image = R.drawable.gmap;
         } else if (typeInstitution.equals(Commons.TYPE_CLINIC)) {
-            image = R.drawable.clinica;
+            //image = R.drawable.clinica;
+            image = R.drawable.gmap;
         } else if (typeInstitution.equals(Commons.TYPE_SEHS)) {
-            image = R.drawable.sehs;
+            //image = R.drawable.sehs;
+            image = R.drawable.gmap;
         } else if (typeInstitution.equals(Commons.TYPE_OTHER)) {
-            image = R.drawable.otros;
+            //image = R.drawable.otros;
+            image = R.drawable.gmap;
         } else if (typeInstitution.equals(Commons.TYPE_RADIO)) {
-            image = R.drawable.radio;
+            //image = R.drawable.radio;
+            image = R.drawable.gmap;
         } else if (typeInstitution.equals(Commons.TYPE_SCHOOL)) {
-            image = R.drawable.colegio;
+            //image = R.drawable.colegio;
+            image = R.drawable.gmap;
         } else if (typeInstitution.equals(Commons.TYPE_UNIVERSITY)) {
-            image = R.drawable.universidad;
+            //image = R.drawable.universidad;
+            image = R.drawable.gmap;
         }
         return image;
     }
-*/
+
+
     public void City() {
     }
 

@@ -1,5 +1,11 @@
 package pe.edu.upeu.movil.unionperuana.service;
 
+import android.util.Log;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -22,16 +28,25 @@ import pe.edu.upeu.movil.unionperuana.util.Commons;
 
 public class UnionService {
 
-    public List<Institution> findInstitutionByBaseTyIdCityIdChurch(String baseTypeId, String cityId, String church,String lat, String log, String typeSearch) {
+    public List<Institution> findInstitutionByBaseTyIdCityIdChurch(String baseTypeId, String cityId, String church,String lat, String lon, String typeSearch) {
         String URL ="";
-        if ("near".equals(typeSearch)){
-            URL=Commons.URL_STRING + "searchInstitutionByAll/"+baseTypeId+"-"+cityId+"-"+church;
-        }else{
-            URL=Commons.URL_STRING + "searchInstitutionByAll/"+lat+"-"+log;
-        }
         List<Institution> list = new ArrayList<Institution>();
         try {
-            RestClient client = new RestClient(URL);
+            RestClient client = null;
+
+            if ("near".equals(typeSearch)){
+                URL=Commons.URL_STRING + "institution/latLon";
+                client = new RestClient(URL);
+                client.addParam("lat",lat);
+                client.addParam("lon",lon);
+            }else{
+                URL=Commons.URL_STRING + "institution/cityTypeName";
+                client = new RestClient(URL);
+                client.addParam("baseTypeId ",baseTypeId);
+                client.addParam("cityId",cityId);
+                client.addParam("church",church);
+            }
+
             client.execute(RequestMethod.GET);
             if (client.getResponseCode() == 200) {
                 JSONArray nameArray = new JSONArray(client.getResponse());
@@ -57,7 +72,8 @@ public class UnionService {
         List<BaseType> list = new ArrayList<BaseType>();
         try {
 
-            RestClient client = new RestClient(Commons.URL_STRING + "typeInstitution");
+            RestClient client = new RestClient(Commons.URL_STRING +"type/all");
+            //client.addParam("cityId","3");
             client.execute(RequestMethod.GET);
             if (client.getResponseCode() == 200) {
                 JSONArray nameArray = new JSONArray(client.getResponse());
@@ -69,16 +85,11 @@ public class UnionService {
                 }
             }
         } catch (Exception e) {
-            list.add(new BaseType("0", "-- Selecciones --"));
-            list.add(new BaseType("1", "Adra"));
-            list.add(new BaseType("2", "Asociación"));
-            list.add(new BaseType("3", "Iglesia"));
-            list.add(new BaseType("4", "Clínica"));
-            list.add(new BaseType("5", "Universidad"));
-            list.add(new BaseType("6", "Radio"));
-            list.add(new BaseType("7", "Colegio/Escuela"));
-            list.add(new BaseType("8", "Otros"));
+            Log.e("ServicioRest","Error!", e);
             e.printStackTrace();
+            list.add(new BaseType("","Todos"));
+            list.add(new BaseType("ADRA","ADRA"));
+            list.add(new BaseType("UNIVERSIDAD","Universidad"));
         }
         return list;
     }
@@ -87,25 +98,26 @@ public class UnionService {
         List<City> list = new ArrayList<City>();
 
         try {
-            RestClient client = new RestClient(Commons.URL_STRING + "searchCityAll");
+            RestClient client = new RestClient( Commons.URL_STRING + "city/all");
             client.execute(RequestMethod.GET);
             if (client.getResponseCode() == 200) {
                 JSONArray nameArray = new JSONArray(client.getResponse());
                 for (int i = 0; i < nameArray.length(); i++) {
                     JSONObject oj = nameArray.getJSONObject(i);
                     String cityDescription = oj.getString("cityDescription");
+                    String latitud = oj.getString("latitud");
+                    String longitud = oj.getString("longitud");
                     String id = oj.getString("id");
                     if (id == null || "null".equals(id)) {
                         id = "0";
                     }
-                    list.add(new City(Integer.parseInt(id), cityDescription));
+                    list.add(new City(Integer.parseInt(id), cityDescription,latitud,longitud));
                 }
             }
         } catch (Exception e) {
-            list.add(new City(0, "-- Selecciones --"));
-            list.add(new City(1,"Juliaca, Puno, Peru"));
-            list.add(new City(2,"Puno, Puno, Peru"));
-            list.add(new City(3,"Arequipa, Arequipa, Peru"));
+            list.add(new City(1,"Lima","-12.0553011","-77.0802424"));
+            list.add(new City(2,"Arequipa","-16.4040495","-71.5740312"));
+            list.add(new City(3,"Puno","-15.8398204","-70.0213623"));
             e.printStackTrace();
         }
         return list;

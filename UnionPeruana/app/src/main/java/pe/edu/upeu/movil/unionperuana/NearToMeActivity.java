@@ -1,7 +1,12 @@
 package pe.edu.upeu.movil.unionperuana;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
 import android.support.design.widget.TabLayout;
 
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -29,6 +34,9 @@ public class NearToMeActivity extends AppCompatActivity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     private ViewPager mViewPager;
+    private double latitud;
+    private double longitud;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +46,10 @@ public class NearToMeActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        List<Institution> listInstitution=findInstitutions();
+        latitudLongitu();
+        List<Institution> listInstitution = findInstitutions();
 
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),listInstitution);
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), listInstitution);
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
@@ -52,11 +61,32 @@ public class NearToMeActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//habilita el boton en ActionBar
     }
 
+    public void latitudLongitu() {
+        Bundle params = getIntent().getExtras();
+        if ("near".equals(params.getString("typeSearch"))) {
+            LocationManager locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            Location loc = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            latitud = loc.getLatitude();
+            longitud = loc.getLatitude();
+        }else{
+            latitud = Double.parseDouble(params.getString("latitud"));
+            longitud = Double.parseDouble(params.getString("longitud"));
+        }
+    }
+
     public List<Institution> findInstitutions(){
         Bundle params = getIntent().getExtras();
         UnionService unionService = new UnionService();
         if("near".equals(params.getString("typeSearch"))){
-            return unionService.findInstitutionByBaseTyIdCityIdChurch(null,null,null,"","",params.getString("typeSearch"));
+
+            return unionService.findInstitutionByBaseTyIdCityIdChurch(
+                    null,null,null,
+                    latitud+"",
+                    longitud+"",
+                    params.getString("typeSearch"));
         }else{
             return unionService.findInstitutionByBaseTyIdCityIdChurch(
                     params.getString("baseTypeId"),
@@ -105,7 +135,7 @@ public class NearToMeActivity extends AppCompatActivity {
                     NearToMeChurchListActivity tab1 = new NearToMeChurchListActivity(listInstitution);
                     return tab1;
                 case 1:
-                    NearToMeChurchMapActivity tab2 = new NearToMeChurchMapActivity(listInstitution);
+                    NearToMeChurchMapActivity tab2 = new NearToMeChurchMapActivity(listInstitution,latitud,longitud);
                     return tab2;
                 default:
                     return null;

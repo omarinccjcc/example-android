@@ -6,7 +6,7 @@ package pe.edu.upeu.movil.unionperuana.util;
 
 public class Commons {
 
-    public final static String URL_STRING = "http://omarinccjcc.s156.eatj.com/union-rest/institution/";
+    public final static String URL_STRING = "http://192.168.43.6:8080/SpringRest/servicerest/";
 
     public final static String TYPE_ADRA = "TYPE_ADRA";
     public final static String TYPE_ASOC = "TYPE_ASOC";

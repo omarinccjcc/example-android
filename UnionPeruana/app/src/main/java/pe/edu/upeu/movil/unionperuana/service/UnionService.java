@@ -87,10 +87,10 @@ public class UnionService {
         } catch (Exception e) {
             Log.e("ServicioRest","Error!", e);
             e.printStackTrace();
-            list.add(new BaseType("","Todos"));
-            list.add(new BaseType("ADRA","ADRA"));
-            list.add(new BaseType("UNIVERSIDAD","Universidad"));
         }
+        list.add(new BaseType("","Todos"));
+        list.add(new BaseType("ADRA","ADRA"));
+        list.add(new BaseType("UNIVERSIDAD","Universidad"));
         return list;
     }
 
@@ -115,11 +115,11 @@ public class UnionService {
                 }
             }
         } catch (Exception e) {
-            list.add(new City(1,"Lima","-12.0553011","-77.0802424"));
-            list.add(new City(2,"Arequipa","-16.4040495","-71.5740312"));
-            list.add(new City(3,"Puno","-15.8398204","-70.0213623"));
             e.printStackTrace();
         }
+        list.add(new City(1,"Lima","-12.0553011","-77.0802424"));
+        list.add(new City(2,"Arequipa","-16.4040495","-71.5740312"));
+        list.add(new City(3,"Puno","-15.8398204","-70.0213623"));
         return list;
     }
 
@@ -127,7 +127,6 @@ public class UnionService {
         List<Sms> list = new ArrayList<Sms>();
         try {
             RestClient client = new RestClient(url);
-            client.addParam("a","aaaas");
             client.execute(RequestMethod.GET);
             if (client.getResponseCode() == 200) {
                 JSONArray nameArray = new JSONArray(client.getResponse());

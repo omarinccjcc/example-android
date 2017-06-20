@@ -42,7 +42,7 @@ public class UnionService {
             }else{
                 URL=Commons.URL_STRING + "institution/cityTypeName";
                 client = new RestClient(URL);
-                client.addParam("baseTypeId ",baseTypeId);
+                client.addParam("baseTypeId",baseTypeId);
                 client.addParam("cityId",cityId);
                 client.addParam("church",church);
             }
@@ -88,9 +88,9 @@ public class UnionService {
             Log.e("ServicioRest","Error!", e);
             e.printStackTrace();
         }
-        list.add(new BaseType("","Todos"));
-        list.add(new BaseType("ADRA","ADRA"));
-        list.add(new BaseType("UNIVERSIDAD","Universidad"));
+        //list.add(new BaseType("","Todos"));
+        //list.add(new BaseType("ADRA","ADRA"));
+        //list.add(new BaseType("UNIVERSIDAD","Universidad"));
         return list;
     }
 
@@ -105,8 +105,8 @@ public class UnionService {
                 for (int i = 0; i < nameArray.length(); i++) {
                     JSONObject oj = nameArray.getJSONObject(i);
                     String cityDescription = oj.getString("cityDescription");
-                    String latitud = oj.getString("latitud");
-                    String longitud = oj.getString("longitud");
+                    String latitud = oj.getString("latitude");
+                    String longitud = oj.getString("longitude");
                     String id = oj.getString("id");
                     if (id == null || "null".equals(id)) {
                         id = "0";
@@ -117,9 +117,9 @@ public class UnionService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        list.add(new City(1,"Lima","-12.0553011","-77.0802424"));
-        list.add(new City(2,"Arequipa","-16.4040495","-71.5740312"));
-        list.add(new City(3,"Puno","-15.8398204","-70.0213623"));
+        //list.add(new City(1,"Lima","-12.0553011","-77.0802424"));
+        //list.add(new City(2,"Arequipa","-16.4040495","-71.5740312"));
+        //list.add(new City(3,"Puno","-15.8398204","-70.0213623"));
         return list;
     }
 

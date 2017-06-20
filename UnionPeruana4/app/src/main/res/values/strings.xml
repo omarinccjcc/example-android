@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">UnionPeruana</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_maps">Map</string>
+
+
+    <string name="msg_church">Iglesia cerca de mi</string>
+    <string name="msg_search_church">Buscar Iglesia</string>
+    <string name="msg_video">Video</string>
+    <string name="msg_music">Música</string>
+    <string name="msg_chat">Chat</string>
+    <string name="msg_sms">Envio de Mensajes</string>
+    <string name="msg_about">Acerca de mi</string>
+    <string name="msg_close">Salir</string>
+
+    <string name="msg_communicate">Comunicación</string>
+    <string name="msg_multimedia">Multimedia</string>
+
+    <string name="msg_type">Tipo</string>
+    <string name="msg_city">Ciudad</string>
+    <string name="msg_name_church">Nombre de Iglesia</string>
+    <string name="msg_btn_search_church">Buscar</string>
+
+
+    <string name="msg_cancel_login">Cancel Login</string>
+    <string name="msg_error_login">Error al momento de conectarse con facebook</string>
+
+
+    <string name="hello_world">0 Mensajes!</string>
+    <string name="send_message">Enviar Mensajes!</string>
+    <string name="upeu_message">Universidad Peruana Unión</string>
+    <string name="select_message_message">Seleccione Campaña:</string>
+    <string name="ingresar">Buscar Campañas:</string>
+
+
+    <string name="facebook_app_id">1321836794537035</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_near_to_me">NearToMeActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_frm_search_church">FrmSearchChurchActivity</string>
+    <string name="title_activity_send_sms">SendSmsActivity</string>
+
+</resources>

@@ -68,6 +68,7 @@ public class NearToMeActivity extends AppCompatActivity {
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 return;
             }
+
             Location loc = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             latitud = loc.getLatitude();
             longitud = loc.getLatitude();
@@ -90,7 +91,7 @@ public class NearToMeActivity extends AppCompatActivity {
         }else{
             return unionService.findInstitutionByBaseTyIdCityIdChurch(
                     params.getString("baseTypeId"),
-                    params.getString("cityId"),
+                    params.getInt("cityId")+"",
                     params.getString("church"),null,null,
                     params.getString("typeSearch"));
         }

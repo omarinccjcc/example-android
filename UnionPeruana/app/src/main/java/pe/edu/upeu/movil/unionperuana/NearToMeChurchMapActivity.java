@@ -7,6 +7,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,7 +82,10 @@ public class NearToMeChurchMapActivity extends Fragment implements OnMapReadyCal
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 200));
         map.animateCamera(CameraUpdateFactory.zoomTo(12), 200, null);
 
+        Log.e("listInstitution:::: ",latitud +" - "+longitud);
+
         for (Institution institution: listInstitution){
+            Log.e("listInstitution:::: ",institution.getNameInstitution()+"");
             map.addMarker(new MarkerOptions().position(sydney).title(institution.getNameInstitution()).snippet(institution.getAddress())
                     .icon(BitmapDescriptorFactory.fromResource( institution.getLogoImagen() )) .anchor(0.5f, 0.5f) );
         }

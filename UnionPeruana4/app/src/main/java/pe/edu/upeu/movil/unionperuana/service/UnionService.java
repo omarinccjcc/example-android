@@ -131,7 +131,6 @@ public class UnionService {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            //System.out.println("message error: " + e.getLocalizedMessage());
         }
         return list;
     }

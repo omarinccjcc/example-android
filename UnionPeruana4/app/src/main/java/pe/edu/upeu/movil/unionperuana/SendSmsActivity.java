@@ -96,23 +96,10 @@ public class SendSmsActivity extends AppCompatActivity {
     }
 
     protected void sendSMS() {
-        //new Thread(new Runnable() {
-        //@Override
-        //public void run() {
-                /*try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }*/
-
                 SmsManager manager = SmsManager.getDefault();
                 UnionService smsService = new UnionService();
 
                 String url = Commons.URL_STRING_SMS + "allmessage/" + getPhoneNumber() + "_" + campaignId;
-
-                // PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
-
-
                 listSmsToSend = smsService.findSms(url);
                 int countMessageSent=0;
                 for (Sms sms : listSmsToSend) {
@@ -129,7 +116,7 @@ public class SendSmsActivity extends AppCompatActivity {
                         smsService.updateSms(url);
                         countMessageSent++;
                     } catch (Exception ex) {
-                        mHandler.post(new Runnable() {
+                        mHandler.post(new Runnable() {s
                             @Override
                             public void run() {
                                 progressBar.setVisibility(View.INVISIBLE);
@@ -146,11 +133,7 @@ public class SendSmsActivity extends AppCompatActivity {
                             textUrl.setText(listSmsToSend.size() + " Mensajes fueron enviados.");
                         }
                     });
-                }
-        // }
-
-        //}).start();
-
+s                }
     }
 
 }

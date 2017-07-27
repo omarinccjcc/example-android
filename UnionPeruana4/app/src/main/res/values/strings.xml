@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">UnionPeruana</string>
+    <string name="app_name">Unión Peruana</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps">Mapa</string>
 
 
     <string name="msg_church">Iglesia cerca de mi</string>
@@ -34,13 +34,13 @@
 
 
     <string name="facebook_app_id">1321836794537035</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">Unión Peruana</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_near_to_me">NearToMeActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_frm_search_church">FrmSearchChurchActivity</string>
-    <string name="title_activity_send_sms">SendSmsActivity</string>
+    <string name="title_activity_send_sms">Envío de Mensajes SMS</string>
 
 </resources>

@@ -110,11 +110,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_search_church) {
             Intent i = new Intent(this,FrmSearchChurchActivity.class);
             startActivity(i);
-        } else if (id == R.id.nav_video) {
+        /*} else if (id == R.id.nav_video) {
 
         } else if (id == R.id.nav_music) {
 
-        } else if (id == R.id.nav_chat) {
+        } else if (id == R.id.nav_chat) {*/
 
         } else if (id == R.id.nav_sms) {
             Intent i = new Intent(this,SendSmsActivity.class);

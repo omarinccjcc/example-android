@@ -9,7 +9,7 @@ public class Commons {
     public final static String URL_STRING = "http://192.168.43.6:8080/SpringRest/servicerest/";
     //public final static String URL_STRING = "http://192.168.1.107:8080/SpringRest/servicerest/";
 
-    public final static String URL_STRING_SMS = "http://192.168.43.6:8080/Sms/service/";
+    public final static String URL_STRING_SMS = "http://sms.upeu.pe/service/";
 
 
     public final static String TYPE_ADRA = "TYPE_ADRA";

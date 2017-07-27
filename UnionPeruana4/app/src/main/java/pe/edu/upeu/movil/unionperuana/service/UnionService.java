@@ -131,7 +131,7 @@ public class UnionService {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("message error: " + e.getLocalizedMessage());
+            //System.out.println("message error: " + e.getLocalizedMessage());
         }
         return list;
     }
@@ -139,8 +139,7 @@ public class UnionService {
     public List<Campaign> findCampaign(String imei) {
         List<Campaign> list = new ArrayList<Campaign>();
         try {
-            //RestClient client = new RestClient(Commons.URL_STRING_SMS +"campaign/"+imei);
-            RestClient client = new RestClient("http://192.168.43.6:8080/Sms/service/campaign/357722070285067");
+            RestClient client = new RestClient(Commons.URL_STRING_SMS +"campaign/"+imei);
             client.execute(RequestMethod.GET);
             if (client.getResponseCode() == 200) {
                 JSONArray nameArray = new JSONArray(client.getResponse());
